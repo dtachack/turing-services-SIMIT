@@ -1,0 +1,1726 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ServicesSIMIT</name>
+    </assembly>
+    <members>
+        <member name="T:ServicesSIMIT.Application.BankAppService">
+            <summary>
+            Banck app service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.BankAppService._bankDomainService">
+            <summary>
+            The bank repository.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.BankAppService._mapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.BankAppService.#ctor(Microsoft.EntityFrameworkCore.DbContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Application.BanckAppService"/> class.
+            </summary>
+            <param name="context">Context.</param>
+            <param name="mapper">Mapper.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.BankAppService.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>The all.</returns>
+        </member>
+        <member name="M:ServicesSIMIT.Application.BankAppService.Save(ServicesSIMIT.Models.RegistroBanco)">
+            <summary>
+            Save the specified banco.
+            </summary>
+            <returns>The save.</returns>
+            <param name="banco">Banco.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Application.Contracts.IBankAppService">
+            <summary>
+            Bank app service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.IBankAppService.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>The all.</returns>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.IBankAppService.Save(ServicesSIMIT.Models.RegistroBanco)">
+            <summary>
+            Save the specified banco.
+            </summary>
+            <returns>The save.</returns>
+            <param name="banco">Banco.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Application.Contracts.IPaymentAppService">
+            <summary>
+            Payment app service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.IPaymentAppService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.IPaymentAppService.Save(ServicesSIMIT.Models.PagoComparendo)">
+            <summary>
+            Save the specified pagoComparendo.
+            </summary>
+            <returns>The save.</returns>
+            <param name="pagoComparendo">Pago comparendo.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.IPaymentAppService.Update(ServicesSIMIT.Models.PagoComparendo)">
+            <summary>
+            Update the specified pagoComparendo.
+            </summary>
+            <returns>The update.</returns>
+            <param name="pagoComparendo">Pago comparendo.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Application.Contracts.IPersonAppService">
+            <summary>
+            Person app service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.IPersonAppService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Application.Contracts.ISubpoenaAppService">
+            <summary>
+            Subpoena app service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.ISubpoenaAppService.Get(System.Nullable{ServicesSIMIT.Enums.TipoDocumento},System.String,System.String,System.String)">
+            <summary>
+            Get the specified documentType, documentNumber, licensePlate and subpoenaNumber.
+            </summary>
+            <returns>The get.</returns>
+            <param name="documentType">Document type.</param>
+            <param name="documentNumber">Document number.</param>
+            <param name="licensePlate">License plate.</param>
+            <param name="subpoenaNumber">Subpoena number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.Contracts.ISubpoenaAppService.Update(ServicesSIMIT.Models.RespuestaConsultaComparendo)">
+            <summary>
+            Update the specified comparendo.
+            </summary>
+            <returns>The update.</returns>
+            <param name="comparendo">Comparendo.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Application.PaymentAppService">
+            <summary>
+            Payment app service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.PaymentAppService._paymentDomainService">
+            <summary>
+            The payment domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.PaymentAppService._bankDomainService">
+            <summary>
+            The bank domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.PaymentAppService._subpoenaDomainService">
+            <summary>
+            The subpoena domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.PaymentAppService._mapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.PaymentAppService.#ctor(Microsoft.EntityFrameworkCore.DbContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Application.PaymentAppService"/> class.
+            </summary>
+            <param name="context">Context.</param>
+            <param name="mapper">Mapper.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.PaymentAppService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.PaymentAppService.Save(ServicesSIMIT.Models.PagoComparendo)">
+            <summary>
+            Save the specified pagoComparendo.
+            </summary>
+            <returns>The save.</returns>
+            <param name="pagoComparendo">Pago comparendo.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.PaymentAppService.Update(ServicesSIMIT.Models.PagoComparendo)">
+            <summary>
+            Update the specified pagoComparendo.
+            </summary>
+            <returns>The update.</returns>
+            <param name="pagoComparendo">Pago comparendo.</param>
+        </member>
+        <member name="F:ServicesSIMIT.Application.PersonAppService._personDomainService">
+            <summary>
+            The person domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.PersonAppService._mapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.Application.SubpoenaAppService">
+            <summary>
+            Subpoena app service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.SubpoenaAppService._personDomainService">
+            <summary>
+            The person domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.SubpoenaAppService._vehicleDomainService">
+            <summary>
+            The vehicle domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.SubpoenaAppService._subpoenaDomainService">
+            <summary>
+            The subpoena domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.SubpoenaAppService._infringementDomainService">
+            <summary>
+            The infringement domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.SubpoenaAppService._agentDomainService">
+            <summary>
+            The agent domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Application.SubpoenaAppService._mapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Application.SubpoenaAppService.#ctor(Microsoft.EntityFrameworkCore.DbContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Application.SubpoenaAppService"/> class.
+            </summary>
+            <param name="context">Context.</param>
+            <param name="mapper">Mapper.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.SubpoenaAppService.Get(System.Nullable{ServicesSIMIT.Enums.TipoDocumento},System.String,System.String,System.String)">
+            <summary>
+            Get the specified documentType, documentNumber, licensePlate and subpoenaNumber.
+            </summary>
+            <returns>The get.</returns>
+            <param name="documentType">Document type.</param>
+            <param name="documentNumber">Document number.</param>
+            <param name="licensePlate">License plate.</param>
+            <param name="subpoenaNumber">Subpoena number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.SubpoenaAppService.Update(ServicesSIMIT.Models.RespuestaConsultaComparendo)">
+            <summary>
+            Update the specified comparendo.
+            </summary>
+            <returns>The update.</returns>
+            <param name="comparendo">Comparendo.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.SubpoenaAppService.GetSubpoenasToMapperResult(System.Collections.Generic.IEnumerable{ServicesSIMIT.Domain.Entities.Subpoena})">
+            <summary>
+            Gets the subpoenas to mapper result.
+            </summary>
+            <returns>The subpoenas to mapper result.</returns>
+            <param name="subpoenas">Subpoenas.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Application.SubpoenaAppService.GetSubpoenaToMapperResult(ServicesSIMIT.Domain.Entities.Subpoena)">
+            <summary>
+            Gets the subpoena to mapper result.
+            </summary>
+            <returns>The subpoena to mapper result.</returns>
+            <param name="subpoena">Subpoena.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Automapper.GlobalMapperProfile">
+            <summary>
+            Realiza la carga del perfil usado para los adaptadore
+            de entidades a DTOs
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Automapper.GlobalMapperProfile.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.Controllers.BankController">
+            <summary>
+            Bank controller.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Controllers.BankController._bankAppService">
+            <summary>
+            The bank app service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.BankController.#ctor(ServicesSIMIT.Application.Contracts.IBankAppService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Controllers.BankController"/> class.
+            </summary>
+            <param name="bankAppService">Bank app service.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.BankController.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>The all.</returns>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.BankController.Save(ServicesSIMIT.Models.RegistroBanco)">
+            <summary>
+            Save the specified banco.
+            </summary>
+            <returns>The save.</returns>
+            <param name="banco">Banco.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Controllers.ComparendoController">
+            <summary>
+            Comparendo controller.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Controllers.ComparendoController._subpoenaServ">
+            <summary>
+            The subpoena serv.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.ComparendoController.#ctor(ServicesSIMIT.Application.Contracts.ISubpoenaAppService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Controllers.ComparendoController"/> class.
+            </summary>
+            <param name="subpoenaServ">Subpoena serv.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.ComparendoController.Get(System.Nullable{ServicesSIMIT.Enums.TipoDocumento},System.String,System.String,System.String)">
+            <summary>
+            Get the specified TipoDocumento, NoDocumento, NumeroPlaca and NumeroComparendo.
+            </summary>
+            <returns>The get.</returns>
+            <param name="TipoDocumento">Tipo documento.</param>
+            <param name="NoDocumento">No documento.</param>
+            <param name="NumeroPlaca">Numero placa.</param>
+            <param name="NumeroComparendo">Numero comparendo.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.ComparendoController.Update(ServicesSIMIT.Models.RespuestaConsultaComparendo)">
+            <summary>
+            Update the specified comparendo.
+            </summary>
+            <returns>The update.</returns>
+            <param name="comparendo">Comparendo.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Controllers.PaymentController">
+            <summary>
+            Payment controller.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.PaymentController.#ctor(ServicesSIMIT.Application.Contracts.IPaymentAppService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Controllers.PaymentController"/> class.
+            </summary>
+            <param name="paymentAppService">Payment app service.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.PaymentController.Save(ServicesSIMIT.Models.PagoComparendo)">
+            <summary>
+            Save the specified pagoComparendo.
+            </summary>
+            <returns>The save.</returns>
+            <param name="pagoComparendo">Pago comparendo.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Controllers.PaymentController.Update(ServicesSIMIT.Models.PagoComparendo)">
+            <summary>
+            Update the specified pagoComparendo.
+            </summary>
+            <returns>The update.</returns>
+            <param name="pagoComparendo">Pago comparendo.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Controllers.PersonController">
+            <summary>
+            Person controller.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Controllers.PersonController._personAppService">
+            <summary>
+            The person app service.
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.DataAccess.SetContextDataBase">
+            <summary>
+            Set context data base.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.DataAccess.SetContextDataBase.SetContext(System.Collections.Generic.List{UtilitiesLibrary.Models.DbSettings},UtilitiesLibrary.Models.SupportedAction)">
+            <summary>
+            Sets the context.
+            </summary>
+            <returns>The context.</returns>
+            <param name="dbSettings">Db settings.</param>
+            <param name="supportedAction">Supported action.</param>
+        </member>
+        <member name="T:ServicesSIMIT.DataAccess.SimitContext">
+            <summary>
+            SimitContext context.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.DataAccess.SimitContext.#ctor(UtilitiesLibrary.Models.DbSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.DataAccess.SimitContext"/> class.
+            </summary>
+            <param name="dbSettings">Db settings.</param>
+        </member>
+        <member name="M:ServicesSIMIT.DataAccess.SimitContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Ons the model creating.
+            </summary>
+            <param name="modelBuilder">Model builder.</param>
+        </member>
+        <member name="T:ServicesSIMIT.DI.DependencyInjectionProfile">
+            <summary>
+            Provee la carga de los perfiles de inyección de dependencias
+            de toda la solución
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.DI.DependencyInjectionProfile.RegisterProfile(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Registra el perfil de producción
+            </summary>
+            <param name="services">Colección de servicios</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.AgentDomainService">
+            <summary>
+            Agent domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.AgentDomainService._agentRepository">
+            <summary>
+            The agent repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.AgentDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Agent})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.AgentDomainService"/> class.
+            </summary>
+            <param name="agentRepository">Agent repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.AgentDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.BankDomainService">
+            <summary>
+            Bank domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.BankDomainService._bankRepository">
+            <summary>
+            The bank repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.BankDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Bank})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.BankDomainService"/> class.
+            </summary>
+            <param name="bankRepository">Bank repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.BankDomainService.Exists(System.Guid)">
+            <summary>
+            Exists the specified Id.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.BankDomainService.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>The all.</returns>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.BankDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.BankDomainService.Save(ServicesSIMIT.Domain.Entities.Bank)">
+            <summary>
+            Save the specified bank.
+            </summary>
+            <returns>The save.</returns>
+            <param name="bank">Bank.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Contracts.IAgentDomainService">
+            <summary>
+            Agent domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IAgentDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Contracts.IBankDomainService">
+            <summary>
+            Bank domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IBankDomainService.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>The all.</returns>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IBankDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IBankDomainService.Exists(System.Guid)">
+            <summary>
+            Exists the specified Id.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IBankDomainService.Save(ServicesSIMIT.Domain.Entities.Bank)">
+            <summary>
+            Save the specified bank.
+            </summary>
+            <returns>The save.</returns>
+            <param name="bank">Bank.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Contracts.IInfringementDomainService">
+            <summary>
+            Infringement domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IInfringementDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Contracts.IPaymentDomainService">
+            <summary>
+            Payment domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPaymentDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPaymentDomainService.Save(ServicesSIMIT.Domain.Entities.PaymentSubpoena)">
+            <summary>
+            Save the specified paymentSubpoena.
+            </summary>
+            <returns>The save.</returns>
+            <param name="paymentSubpoena">Payment subpoena.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPaymentDomainService.Update(ServicesSIMIT.Domain.Entities.PaymentSubpoena)">
+            <summary>
+            Update the specified paymentSubpoena.
+            </summary>
+            <returns>The update.</returns>
+            <param name="paymentSubpoena">Payment subpoena.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPaymentDomainService.ExistsBySubpoenaId(System.Guid)">
+            <summary>
+            Existses the by subpoena identifier.
+            </summary>
+            <returns><c>true</c>, if by subpoena identifier was existsed, <c>false</c> otherwise.</returns>
+            <param name="subpoenaId">Subpoena identifier.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Contracts.IPersonDomainService">
+            <summary>
+            Person domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPersonDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPersonDomainService.GetByDocumentTypeByDocumentNumber(System.Int32,System.String)">
+            <summary>
+            Gets the by document type by document number.
+            </summary>
+            <returns>The by document type by document number.</returns>
+            <param name="documentType">Document type.</param>
+            <param name="documentNumber">Document number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPersonDomainService.Exists(System.Int32,System.String)">
+            <summary>
+            Exists the specified documentType and documentNumber.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="documentType">Document type.</param>
+            <param name="documentNumber">Document number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IPersonDomainService.Save(ServicesSIMIT.Domain.Entities.Person)">
+            <summary>
+            Save the specified person.
+            </summary>
+            <returns>The save.</returns>
+            <param name="person">Person.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Contracts.IVehicleDomainService">
+            <summary>
+            Vehicle domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IVehicleDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IVehicleDomainService.GetByLicensePlate(System.String)">
+            <summary>
+            Gets the by license plate.
+            </summary>
+            <returns>The by license plate.</returns>
+            <param name="licensePlate">License plate.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.Contracts.IVehicleDomainService.Exists(System.String)">
+            <summary>
+            Exists the specified licensePlate.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="licensePlate">License plate.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.ISubpoenaDomainService">
+            <summary>
+            Subpoena domain service.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.GetByPersonId(System.Guid)">
+            <summary>
+            Gets the by person identifier.
+            </summary>
+            <returns>The by person identifier.</returns>
+            <param name="personId">Person identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.GetByVehicleId(System.Guid)">
+            <summary>
+            Gets the by vehicle identifier.
+            </summary>
+            <returns>The by vehicle identifier.</returns>
+            <param name="vehicleId">Vehicle identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.GetByVehicleIdByPersonId(System.Guid,System.Guid)">
+            <summary>
+            Gets the by vehicle identifier by person identifier.
+            </summary>
+            <returns>The by vehicle identifier by person identifier.</returns>
+            <param name="vehicleId">Vehicle identifier.</param>
+            <param name="personId">Person identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.GetByPersonIdBySubpoenaNumber(System.Guid,System.String)">
+            <summary>
+            Gets the by person identifier by subpoena number.
+            </summary>
+            <returns>The by person identifier by subpoena number.</returns>
+            <param name="personId">Person identifier.</param>
+            <param name="subpoenaNumber">Subpoena number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.GetByVehicleIdByPersonIdBySubpoenaNumber(System.Guid,System.Guid,System.String)">
+            <summary>
+            Gets the by vehicle identifier by person identifier by subpoena number.
+            </summary>
+            <returns>The by vehicle identifier by person identifier by subpoena number.</returns>
+            <param name="vehicleId">Vehicle identifier.</param>
+            <param name="personId">Person identifier.</param>
+            <param name="subpoenaNumber">Subpoena number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.GetByNumber(System.String)">
+            <summary>
+            Gets the by number.
+            </summary>
+            <returns>The by number.</returns>
+            <param name="number">Number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.Update(ServicesSIMIT.Domain.Entities.Subpoena)">
+            <summary>
+            Update the specified subpoena.
+            </summary>
+            <returns>The update.</returns>
+            <param name="subpoena">Subpoena.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.ISubpoenaDomainService.Exists(System.String)">
+            <summary>
+            Exists the specified number.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="number">Number.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.Agent">
+            <summary>
+            Agent.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Agent.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Agent.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Agent.Badge">
+            <summary>
+            Gets or sets the badge.
+            </summary>
+            <value>The badge.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Agent.DocumentNumber">
+            <summary>
+            Gets or sets the document number.
+            </summary>
+            <value>The document number.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.Bank">
+            <summary>
+            Bank.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Bank.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Bank.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.Infringement">
+            <summary>
+            Infringement.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Infringement.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Infringement.Code">
+            <summary>
+            Gets or sets the code.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Infringement.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.PaymentSubpoena">
+            <summary>
+            Payment subpoena.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.Cus">
+            <summary>
+            Gets or sets the cus.
+            </summary>
+            <value>The cus.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.DatePayment">
+            <summary>
+            Gets or sets the date payment.
+            </summary>
+            <value>The date payment.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.IdSubpoena">
+            <summary>
+            Gets or sets the identifier subpoena.
+            </summary>
+            <value>The identifier subpoena.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.IdBank">
+            <summary>
+            Gets or sets the identifier bank.
+            </summary>
+            <value>The identifier bank.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.PaymentSubpoena.IdPerson">
+            <summary>
+            Gets or sets the identifier person.
+            </summary>
+            <value>The identifier person.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.Person">
+            <summary>
+            Person.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Person.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Person.DocumentNumber">
+            <summary>
+            Gets or sets the document number.
+            </summary>
+            <value>The document number.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Person.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Person.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Person.DocumentType">
+            <summary>
+            Gets or sets the type of the document.
+            </summary>
+            <value>The type of the document.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Person.PersonType">
+            <summary>
+            Gets or sets the type of the person.
+            </summary>
+            <value>The type of the person.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.Subpoena">
+            <summary>
+            Subpoena.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>The number.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.DateImposition">
+            <summary>
+            Gets or sets the date imposition.
+            </summary>
+            <value>The date imposition.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.BarCode">
+            <summary>
+            Gets or sets the bar code.
+            </summary>
+            <value>The bar code.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Photo1">
+            <summary>
+            Gets or sets the photo1.
+            </summary>
+            <value>The photo1.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Photo2">
+            <summary>
+            Gets or sets the photo2.
+            </summary>
+            <value>The photo2.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.DateInfringement">
+            <summary>
+            Gets or sets the date infringement.
+            </summary>
+            <value>The date infringement.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.Observation">
+            <summary>
+            Gets or sets the observation.
+            </summary>
+            <value>The observation.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.IdVehicle">
+            <summary>
+            Gets or sets the identifier vehicle.
+            </summary>
+            <value>The identifier vehicle.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.IdPerson">
+            <summary>
+            Gets or sets the identifier person.
+            </summary>
+            <value>The identifier person.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.IdAgentDetector">
+            <summary>
+            Gets or sets the identifier agent detector.
+            </summary>
+            <value>The identifier agent detector.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.IdAgentRegister">
+            <summary>
+            Gets or sets the identifier agent register.
+            </summary>
+            <value>The identifier agent register.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Subpoena.IdInfringement">
+            <summary>
+            Gets or sets the identifier infringement.
+            </summary>
+            <value>The identifier infringement.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.Entities.Vehicle">
+            <summary>
+            Vehicle.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Vehicle.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Vehicle.LicensePlate">
+            <summary>
+            Gets or sets the license plate.
+            </summary>
+            <value>The license plate.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Vehicle.Brand">
+            <summary>
+            Gets or sets the brand.
+            </summary>
+            <value>The brand.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Vehicle.Line">
+            <summary>
+            Gets or sets the line.
+            </summary>
+            <value>The line.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Domain.Entities.Vehicle.Model">
+            <summary>
+            Gets or sets the model.
+            </summary>
+            <value>The model.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.InfringementDomainService">
+            <summary>
+            Infringement domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.InfringementDomainService._infringementRepository">
+            <summary>
+            The infringement repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.InfringementDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Infringement})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.InfringementDomainService"/> class.
+            </summary>
+            <param name="infringementRepository">Infringement repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.InfringementDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.PaymentDomainService">
+            <summary>
+            Payment domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.PaymentDomainService._paymentRepository">
+            <summary>
+            The payment repository.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.PaymentDomainService._subpoenaRepository">
+            <summary>
+            The subpoena repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PaymentDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.PaymentSubpoena},UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Subpoena})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.PaymentDomainService"/> class.
+            </summary>
+            <param name="paymentRepository">Payment repository.</param>
+            <param name="subpoenaRepository">Subpoena repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PaymentDomainService.Exists(System.Guid)">
+            <summary>
+            Exists the specified Id.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PaymentDomainService.ExistsBySubpoenaId(System.Guid)">
+            <summary>
+            Existses the by subpoena identifier.
+            </summary>
+            <returns><c>true</c>, if by subpoena identifier was existsed, <c>false</c> otherwise.</returns>
+            <param name="subpoenaId">Subpoena identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PaymentDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PaymentDomainService.Save(ServicesSIMIT.Domain.Entities.PaymentSubpoena)">
+            <summary>
+            Save the specified paymentSubpoena.
+            </summary>
+            <returns>The save.</returns>
+            <param name="paymentSubpoena">Payment subpoena.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PaymentDomainService.Update(ServicesSIMIT.Domain.Entities.PaymentSubpoena)">
+            <summary>
+            Update the specified paymentSubpoena.
+            </summary>
+            <returns>The update.</returns>
+            <param name="paymentSubpoena">Payment subpoena.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.PersonDomainService">
+            <summary>
+            Person domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.PersonDomainService._personRepository">
+            <summary>
+            The person repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PersonDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Person})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.PersonDomainService"/> class.
+            </summary>
+            <param name="personRepository">Person repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PersonDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PersonDomainService.GetByDocumentTypeByDocumentNumber(System.Int32,System.String)">
+            <summary>
+            Gets the by document type by document number.
+            </summary>
+            <returns>The by document type by document number.</returns>
+            <param name="documentType">Document type.</param>
+            <param name="documentNumber">Document number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PersonDomainService.Exists(System.Int32,System.String)">
+            <summary>
+            Exists the specified documentType and documentNumber.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="documentType">Document type.</param>
+            <param name="documentNumber">Document number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.PersonDomainService.Save(ServicesSIMIT.Domain.Entities.Person)">
+            <summary>
+            Save the specified person.
+            </summary>
+            <returns>The save.</returns>
+            <param name="person">Person.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.SubpoenaDomainService">
+            <summary>
+            Subpoena domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.SubpoenaDomainService._subpoenaRepository">
+            <summary>
+            The subpoena repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Subpoena})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.SubpoenaDomainService"/> class.
+            </summary>
+            <param name="subpoenaRepository">Subpoena repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.GetByPersonId(System.Guid)">
+            <summary>
+            Gets the by person identifier.
+            </summary>
+            <returns>The by person identifier.</returns>
+            <param name="personId">Person identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.GetByVehicleId(System.Guid)">
+            <summary>
+            Gets the by vehicle identifier.
+            </summary>
+            <returns>The by vehicle identifier.</returns>
+            <param name="vehicleId">Vehicle identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.GetByNumber(System.String)">
+            <summary>
+            Gets the by number.
+            </summary>
+            <returns>The by number.</returns>
+            <param name="number">Number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.GetByVehicleIdByPersonId(System.Guid,System.Guid)">
+            <summary>
+            Gets the by vehicle identifier by person identifier.
+            </summary>
+            <returns>The by vehicle identifier by person identifier.</returns>
+            <param name="vehicleId">Vehicle identifier.</param>
+            <param name="personId">Person identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.GetByVehicleIdByPersonIdBySubpoenaNumber(System.Guid,System.Guid,System.String)">
+            <summary>
+            Gets the by vehicle identifier by person identifier by subpoena number.
+            </summary>
+            <returns>The by vehicle identifier by person identifier by subpoena number.</returns>
+            <param name="vehicleId">Vehicle identifier.</param>
+            <param name="personId">Person identifier.</param>
+            <param name="subpoenaNumber">Subpoena number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.GetByPersonIdBySubpoenaNumber(System.Guid,System.String)">
+            <summary>
+            Gets the by person identifier by subpoena number.
+            </summary>
+            <returns>The by person identifier by subpoena number.</returns>
+            <param name="personId">Person identifier.</param>
+            <param name="subpoenaNumber">Subpoena number.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.Update(ServicesSIMIT.Domain.Entities.Subpoena)">
+            <summary>
+            Update the specified subpoena.
+            </summary>
+            <returns>The update.</returns>
+            <param name="subpoena">Subpoena.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.SubpoenaDomainService.Exists(System.String)">
+            <summary>
+            Exists the specified number.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="number">Number.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Domain.VehicleDomainService">
+            <summary>
+            Vehicle domain service.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Domain.VehicleDomainService._vehicleRepository">
+            <summary>
+            The vehicle repository.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.VehicleDomainService.#ctor(UtilitiesLibrary.IRepository{ServicesSIMIT.Domain.Entities.Vehicle})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Domain.VehicleDomainService"/> class.
+            </summary>
+            <param name="vehicleRepository">Vehicle repository.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.VehicleDomainService.GetById(System.Guid)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <returns>The by identifier.</returns>
+            <param name="Id">Identifier.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.VehicleDomainService.GetByLicensePlate(System.String)">
+            <summary>
+            Gets the by license plate.
+            </summary>
+            <returns>The by license plate.</returns>
+            <param name="licensePlate">License plate.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Domain.VehicleDomainService.Exists(System.String)">
+            <summary>
+            Exists the specified licensePlate.
+            </summary>
+            <returns>The exists.</returns>
+            <param name="licensePlate">License plate.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Enums.PaymentState">
+            <summary>
+            Payment state.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.PaymentState.Pending">
+            <summary>
+            The pending.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.PaymentState.Accept">
+            <summary>
+            The accept.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.PaymentState.Rejected">
+            <summary>
+            The rejected.
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.Enums.SubpoenaState">
+            <summary>
+            Subpoena state.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.SubpoenaState.Registered">
+            <summary>
+            The registered.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.SubpoenaState.Payment">
+            <summary>
+            The payment.
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.Enums.TipoDocumento">
+            <summary>
+            Tipo documento.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.TipoDocumento.CE">
+            <summary>
+            The ce.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.TipoDocumento.CC">
+            <summary>
+            The cc.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.TipoDocumento.P">
+            <summary>
+            The p.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.TipoDocumento.TI">
+            <summary>
+            The ti.
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.Enums.TipoPersona">
+            <summary>
+            Tipo persona.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.TipoPersona.Persona">
+            <summary>
+            The persona.
+            </summary>
+        </member>
+        <member name="F:ServicesSIMIT.Enums.TipoPersona.Empresa">
+            <summary>
+            The empresa.
+            </summary>
+        </member>
+        <member name="T:ServicesSIMIT.Models.AgenteDetector">
+            <summary>
+            Agente detector.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.AgenteDetector.NombreAgenteDetector">
+            <summary>
+            Gets or sets the nombre agente detector.
+            </summary>
+            <value>The nombre agente detector.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.AgenteDetector.PlacaAgenteDetector">
+            <summary>
+            Gets or sets the placa agente detector.
+            </summary>
+            <value>The placa agente detector.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.AgenteRegistro">
+            <summary>
+            Agente registro.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.AgenteRegistro.NombreAgenteDetector">
+            <summary>
+            Gets or sets the nombre agente detector.
+            </summary>
+            <value>The nombre agente detector.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.AgenteRegistro.PlacaAgenteDetector">
+            <summary>
+            Gets or sets the placa agente detector.
+            </summary>
+            <value>The placa agente detector.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.Banco">
+            <summary>
+            Banco.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Banco.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Banco.Nombre">
+            <summary>
+            Gets or sets the nombre.
+            </summary>
+            <value>The nombre.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.RegistroBanco">
+            <summary>
+            Registro banco.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RegistroBanco.Nombre">
+            <summary>
+            Gets or sets the nombre.
+            </summary>
+            <value>The nombre.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.Comparendo">
+            <summary>
+            Comparendo.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Comparendo.NumeroComparendo">
+            <summary>
+            Gets or sets the numero comparendo.
+            </summary>
+            <value>The numero comparendo.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Comparendo.FechaImposicion">
+            <summary>
+            Gets or sets the fecha imposicion.
+            </summary>
+            <value>The fecha imposicion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Comparendo.CodigoBarras">
+            <summary>
+            Gets or sets the codigo barras.
+            </summary>
+            <value>The codigo barras.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Comparendo.Estado">
+            <summary>
+            Gets or sets the estado.
+            </summary>
+            <value>The estado.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Comparendo.Foto">
+            <summary>
+            Gets or sets the foto.
+            </summary>
+            <value>The foto.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Comparendo.Valor">
+            <summary>
+            Gets or sets the valor.
+            </summary>
+            <value>The valor.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.ConsultaComparendo">
+            <summary>
+            Consulta comparendo.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.ConsultaComparendo.TipoDocumento">
+            <summary>
+            Gets or sets the tipo documento.
+            </summary>
+            <value>The tipo documento.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.ConsultaComparendo.NoDocumento">
+            <summary>
+            Gets or sets the no documento.
+            </summary>
+            <value>The no documento.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.ConsultaComparendo.NumeroPlaca">
+            <summary>
+            Gets or sets the numero placa.
+            </summary>
+            <value>The numero placa.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.ConsultaComparendo.NumeroComparendo">
+            <summary>
+            Gets or sets the numero comparendo.
+            </summary>
+            <value>The numero comparendo.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.Infraccion">
+            <summary>
+            Infraccion.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Infraccion.CodigoInfraccion">
+            <summary>
+            Gets or sets the codigo infraccion.
+            </summary>
+            <value>The codigo infraccion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Infraccion.DescipcionInfraccion">
+            <summary>
+            Gets or sets the descipcion infraccion.
+            </summary>
+            <value>The descipcion infraccion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Infraccion.FechayhoraInfraccion">
+            <summary>
+            Gets or sets the fechayhora infraccion.
+            </summary>
+            <value>The fechayhora infraccion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Infraccion.DireccionInfraccion">
+            <summary>
+            Gets or sets the direccion infraccion.
+            </summary>
+            <value>The direccion infraccion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Infraccion.Observaciones">
+            <summary>
+            Gets or sets the observaciones.
+            </summary>
+            <value>The observaciones.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.PagoComparendo">
+            <summary>
+            Pago comparendo.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Numerocomparendo">
+            <summary>
+            Gets or sets the numerocomparendo.
+            </summary>
+            <value>The numerocomparendo.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Banco">
+            <summary>
+            Gets or sets the banco.
+            </summary>
+            <value>The banco.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Persona">
+            <summary>
+            Gets or sets the persona.
+            </summary>
+            <value>The persona.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Valor">
+            <summary>
+            Gets or sets the valor.
+            </summary>
+            <value>The valor.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Estado">
+            <summary>
+            Gets or sets the estado.
+            </summary>
+            <value>The estado.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Descripcion">
+            <summary>
+            Gets or sets the descripcion.
+            </summary>
+            <value>The descripcion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.Cus">
+            <summary>
+            Gets or sets the cus.
+            </summary>
+            <value>The cus.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.FechaPago">
+            <summary>
+            Gets or sets the fecha pago.
+            </summary>
+            <value>The fecha pago.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoComparendo.IdPago">
+            <summary>
+            Gets or sets the payment identifier.
+            </summary>
+            <value>The payment identifier.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.PagoEntidad">
+            <summary>
+            Pago entidad.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.Estado">
+            <summary>
+            Gets or sets the estado.
+            </summary>
+            <value>The estado.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.CUS">
+            <summary>
+            Gets or sets the cus.
+            </summary>
+            <value>The cus.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.Banco">
+            <summary>
+            Gets or sets the banco.
+            </summary>
+            <value>The banco.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.Descripcion">
+            <summary>
+            Gets or sets the descripcion.
+            </summary>
+            <value>The descripcion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.Valor">
+            <summary>
+            Gets or sets the valor.
+            </summary>
+            <value>The valor.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.PagoEntidad.Fecha">
+            <summary>
+            Gets or sets the fecha.
+            </summary>
+            <value>The fecha.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.Persona">
+            <summary>
+            Persona.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Persona.NumeroDocumento">
+            <summary>
+            Gets or sets the numero documento.
+            </summary>
+            <value>The numero documento.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Persona.NombreyApellidos">
+            <summary>
+            Gets or sets the nombrey apellidos.
+            </summary>
+            <value>The nombrey apellidos.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Persona.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Persona.TipoDocumento">
+            <summary>
+            Gets or sets the tipo documento.
+            </summary>
+            <value>The tipo documento.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Persona.TipoPersona">
+            <summary>
+            Gets or sets the tipo persona.
+            </summary>
+            <value>The tipo persona.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.RespuestaConsultaComparendo">
+            <summary>
+            Respuesta consulta comparendo.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaConsultaComparendo.Comparendo">
+            <summary>
+            Gets or sets the comparendo.
+            </summary>
+            <value>The comparendo.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaConsultaComparendo.Infraccion">
+            <summary>
+            Gets or sets the infraccion.
+            </summary>
+            <value>The infraccion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaConsultaComparendo.Persona">
+            <summary>
+            Gets or sets the persona.
+            </summary>
+            <value>The persona.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaConsultaComparendo.Vehiculo">
+            <summary>
+            Gets or sets the vehiculo.
+            </summary>
+            <value>The vehiculo.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaConsultaComparendo.AgenteDetectorInfraccion">
+            <summary>
+            Gets or sets the agente detector infraccion.
+            </summary>
+            <value>The agente detector infraccion.</value>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaConsultaComparendo.AgenteRegistroComparendo">
+            <summary>
+            Gets or sets the agente registro comparendo.
+            </summary>
+            <value>The agente registro comparendo.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.RespuestaPagoComparendo">
+            <summary>
+            Respuesta pago comparendo.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.RespuestaPagoComparendo.Payment">
+            <summary>
+            Gets or sets the payment.
+            </summary>
+            <value>The payment.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Models.Vehiculo">
+            <summary>
+            Vehiculo.
+            </summary>
+        </member>
+        <member name="P:ServicesSIMIT.Models.Vehiculo.Placa">
+            <summary>
+            Gets or sets the placa.
+            </summary>
+            <value>The placa.</value>
+        </member>
+        <member name="T:ServicesSIMIT.Program">
+            <summary>
+            Program.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Program.Main(System.String[])">
+            <summary>
+            The entry point of the program, where the program control starts and ends.
+            </summary>
+            <param name="args">The command-line arguments.</param>
+        </member>
+        <member name="M:ServicesSIMIT.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Creates the web host builder.
+            </summary>
+            <returns>The web host builder.</returns>
+            <param name="args">Arguments.</param>
+        </member>
+        <member name="T:ServicesSIMIT.Startup">
+            <summary>
+            Startup.
+            </summary>
+        </member>
+        <member name="M:ServicesSIMIT.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ServicesSIMIT.Startup"/> class.
+            </summary>
+            <param name="configuration">Configuration.</param>
+        </member>
+        <member name="P:ServicesSIMIT.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:ServicesSIMIT.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:ServicesSIMIT.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Configure the specified app and env.
+            </summary>
+            <param name="app">App.</param>
+            <param name="env">Env.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,9 @@
+C:\Repositorios\Patrones201901\DataAccess\bin\Debug\netcoreapp2.2\Utilities.Library.deps.json
+C:\Repositorios\Patrones201901\DataAccess\bin\Debug\netcoreapp2.2\Utilities.Library.dll
+C:\Repositorios\Patrones201901\DataAccess\bin\Debug\netcoreapp2.2\Utilities.Library.pdb
+C:\Repositorios\Patrones201901\DataAccess\obj\Debug\netcoreapp2.2\Utilities.Library.csprojAssemblyReference.cache
+C:\Repositorios\Patrones201901\DataAccess\obj\Debug\netcoreapp2.2\Utilities.Library.csproj.CoreCompileInputs.cache
+C:\Repositorios\Patrones201901\DataAccess\obj\Debug\netcoreapp2.2\Utilities.Library.AssemblyInfoInputs.cache
+C:\Repositorios\Patrones201901\DataAccess\obj\Debug\netcoreapp2.2\Utilities.Library.AssemblyInfo.cs
+C:\Repositorios\Patrones201901\DataAccess\obj\Debug\netcoreapp2.2\Utilities.Library.dll
+C:\Repositorios\Patrones201901\DataAccess\obj\Debug\netcoreapp2.2\Utilities.Library.pdb
